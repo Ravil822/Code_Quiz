@@ -1,9 +1,9 @@
+var body = document.body;
 var main = document.querySelector(".mainScore");
 var listClear = document.querySelector(".listClear");
 var listContainer = document.querySelector(".listcontainer");
 var liElement = document.querySelector("li");
 
-// Elements created
 var backButton = document.createElement("button");
 var clearButton = document.createElement("button");
 

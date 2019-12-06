@@ -1,17 +1,15 @@
-
-
 // set varibles
 
 var body = document.body;
 var QuizElement = document.getElementById("quiz");
 var timerElement = document.getElementById("timer");
-var timer = 75;
 var questionsElement = document.getElementById("questions");
-var questions = 5;
 var choice_1Element = document.getElementById("choice_1");
 var choice_2Element = document.getElementById("choice_2");
 var choice_3Element = document.getElementById("choice_3");
 var choice_4Element = document.getElementById("choice_4");
+var timer = 75;
+var questions = 5;
 var highscorePulled = [];
 var userNameElement = document.getElementById("userName");
 var submitButton = document.querySelector(".submitButton");
@@ -28,11 +26,10 @@ var scoreTold = document.createElement("h3");
 // set new elements
 mainPageLi.textContent = "Coding Quiz Challenge";
 mainPageLi.setAttribute("class", "list-group-item bg-info text-center text-white");
-mainPageInstru.textContent = "Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answer will penalise your score/time by ten seconds";
+mainPageInstru.textContent = "Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answer will penalise your score/time by ten seconds.";
 mainPageInstru.setAttribute("class", "list-group-item text-center");
 mainPageStartBtn.innerHTML = "START";
 highScoreh3.textContent = "All Done!!!";
-console.log(mainPageStartBtn)
 
 body.setAttribute("style", "max-width: 830px; margin: auto;");
 QuizElement.setAttribute("style", "max-width: 630px");
@@ -52,7 +49,7 @@ function clearPage() {
 //Score
 function scoreStart() {
     highscorePulled = JSON.parse(localStorage.getItem("scores") || "[]");
-}
+};
 
 function scoreFinal() {
     highscorePulled = JSON.parse(localStorage.getItem("scores") || "[]");
@@ -62,7 +59,7 @@ function scoreFinal() {
     scoreStart();
 }
 function replacePage() {
-    location.replace("highscores.html")
+    location.replace("highscores.html");
 }
 // start timer
 function startTimer() {
@@ -81,6 +78,7 @@ function startTimer() {
         }
     }, 1000);
 }
+
 function pickRandom() {
 
     var ran = Math.floor(Math.random() * questions.length);
@@ -98,7 +96,6 @@ function initials() {
 
     submitButton.addEventListener("click", function (event) {
         event.preventDefault();
-        console.log("I was clicked");
 
         var initials = document.getElementById("userNAme").value;
 
@@ -110,7 +107,7 @@ function initials() {
         localStorage.setItem("initials", JSON.stringify(initialsPulled));
         replacePage();
     });
-}
+};
 
 // start quiz
 function generateQuestion() {
@@ -131,7 +128,7 @@ function generateQuestion() {
     choice_4Element.textContent = "";
 
     //add the title of the question into the the options
-    questionsElement.textContent = ranQuestions.title;
+    questionsElement.textContent = ranQuestions.question;
     choice_1Element.textContent = choicesPull[0];
     choice_2Element.textContent = choicesPull[1];
     choice_3Element.textContent = choicesPull[2];
@@ -147,13 +144,11 @@ function generateQuestion() {
 
     choice_1Element.onclick = "";
     choice_1Element.onclick = function () {
-        console.log("You selected: " + choice_1Element.textContent);
-        console.log("Answer is " + answerPull);
+
 
         if (choice_1Element.textContent === answerPull) {
-            console.log("correct");
+           
             questionsAnswered = questionsAnswered - 1;
-            console.log(questionsAnswered);
             choice_1Element.setAttribute("class", "btn btn-success btn-lg btn-block text-left");
             setInterval(function () {
                 choice_1Element.setAttribute("class", "btn btn-light btn-lg btn-block text-left");
@@ -161,9 +156,7 @@ function generateQuestion() {
             generateQuestion();
         }
         else {
-            console.log("wrong sir");
             questionsAnswered = questionsAnswered - 1;
-            console.log(questionsAnswered);
             timer = timer - 15;
             choice_1Element.setAttribute("class", "btn btn-danger btn-lg btn-block text-left");
             setInterval(function () {
@@ -171,17 +164,14 @@ function generateQuestion() {
             }, 50);
             generateQuestion();
         }
-    }
+    };
 
     choice_2Element.onclick = ""
     choice_2Element.onclick = function () {
-        console.log("You selected: " + choice_2Element.textContent);
-        console.log("Answer is " + answerPull);
 
         if (choice_2Element.textContent === answerPull) {
-            console.log("correct");
+
             questionsAnswered = questionsAnswered - 1;
-            console.log(questionsAnswered);
             choice_2Element.setAttribute("class", "btn btn-success btn-lg btn-block text-left");
             setInterval(function () {
                 choice_2Element.setAttribute("class", "btn btn-light btn-lg btn-block text-left");
@@ -190,9 +180,7 @@ function generateQuestion() {
 
         }
         else {
-            console.log("wrong sir");
             questionsAnswered = questionsAnswered - 1;
-            console.log(questionsAnswered);
             timer = timer - 15;
             choice_2Element.setAttribute("class", "btn btn-success btn-lg btn-block text-left");
             setInterval(function () {
@@ -200,17 +188,13 @@ function generateQuestion() {
             }, 50);
             generateQuestion();
         }
-    }
+    };
 
     choice_3Element.onclick = ""
     choice_3Element.onclick = function () {
-        console.log("You selected: " + choice_3Element.textContent);
-        console.log("Answer is " + answerPull);
 
         if (choice_3Element.textContent === answerPull) {
-            console.log("correct");
             questionsAnswered = questionsAnswered - 1;
-            console.log(questionsAnswered);
             choice_3Element.setAttribute("class", "btn btn-success btn-lg btn-block text-left");
             setInterval(function () {
                 choice_3Element.setAttribute("class", "btn btn-light btn-lg btn-block text-left");
@@ -218,9 +202,7 @@ function generateQuestion() {
             generateQuestion();
         }
         else {
-            console.log("wrong sir");
             questionsAnswered = questionsAnswered - 1;
-            console.log(questionsAnswered);
             timer = timer - 15;
             choice_3Element.setAttribute("class", "btn btn-danger btn-lg btn-block text-left");
             setInterval(function () {
@@ -228,17 +210,13 @@ function generateQuestion() {
             }, 50);
             generateQuestion();
         }
-    }
+    };
 
     choice_4Element.onclick = ""
     choice_4Element.onclick = function () {
-        console.log("You selected: " + choice_4Element.textContent);
-        console.log("Answer is " + answerPull);
 
         if (choice_4Element.textContent === answerPull) {
-            console.log("correct");
             questionsAnswered = questionsAnswered - 1;
-            console.log(questionsAnswered);
             choice_4Element.setAttribute("class", "btn btn-danger btn-lg btn-block text-left");
             setInterval(function () {
                 choice_4Element.setAttribute("class", "btn btn-light btn-lg btn-block text-left");
@@ -246,9 +224,7 @@ function generateQuestion() {
             generateQuestion();
         }
         else {
-            console.log("wrong sir");
             questionsAnswered = questionsAnswered - 1;
-            console.log(questionsAnswered);
             timer = timer - 15;
             choice_4Element.setAttribute("class", "btn btn-danger btn-lg btn-block text-left");
             setInterval(function () {
@@ -256,7 +232,7 @@ function generateQuestion() {
             }, 50);
             generateQuestion();
         }
-    }
+    };
 
     if (questionsAnswered === 0) {
         scoreFinal();

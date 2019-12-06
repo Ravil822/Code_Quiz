@@ -22,9 +22,14 @@ var questions = [
     },
     {
         question: "The condition in an if / else statment is inclosed within ______",
-        userChoices: ["quotes", "curly brackets","parentheses", "square brackets"],
+        userChoices: ["quotes", "curly brackets", "parentheses", "square brackets"],
         answer: "parentheses"
+    },
+    {
+        question: "JavaScript is a _______________ language.",
+        userChoices: ["Object-Oriented", "High-level", "Assembly-language", "Object-Based"],
+        answer: "Object-Based"
     }
 
 
-]
+];
