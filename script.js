@@ -9,9 +9,9 @@ var choice_2Element = document.getElementById("choice_2");
 var choice_3Element = document.getElementById("choice_3");
 var choice_4Element = document.getElementById("choice_4");
 var timer = 75;
-var questions = 5;
+var questionsAnswered = 5;
 var highscorePulled = [];
-var userNameElement = document.getElementById("userName");
+var userNameElement = document.querySelector(".userInitials");
 var submitButton = document.querySelector(".submitButton");
 var initialsPulled = [];
 
@@ -59,7 +59,7 @@ function scoreFinal() {
     scoreStart();
 }
 function replacePage() {
-    location.replace("highscores.html");
+    location.replace("highscore.html");
 }
 // start timer
 function startTimer() {
@@ -91,13 +91,13 @@ function initials() {
     QuizElement.appendChild(highScoreh3);
     timer = timer + 1;
     timerElement.textContent = "";
-    QuizElement.appendChild(userInitials);
+    QuizElement.appendChild(userNameElement);
     QuizElement.appendChild(submitButton);
 
     submitButton.addEventListener("click", function (event) {
         event.preventDefault();
 
-        var initials = document.getElementById("userNAme").value;
+        var initials = document.querySelector(".userInitials").value;
 
         if (initials === "") {
             displayMessage("error", "Initials cannot be blank");
